@@ -1,0 +1,44 @@
+{
+    "usuarios": [
+        {
+            "name": "Agra Express",
+            "origin": "Agra Cantt",
+            "destination": "New Delhi"
+        },
+        {
+            "name": "Gour Express",
+            "origin": "Balurghat",
+            "destination": "Sealdah"
+        },
+        {
+            "name": "Gour Express",
+            "origin": "Balurghat",
+            "destination": "Sealdah"
+        },
+        {
+            "name": "Gour Express",
+            "origin": "Balurghat",
+            "destination": "Sealdah"
+        },
+        {
+            "name": "Gour Express",
+            "origin": "Balurghat",
+            "destination": "Sealdah"
+        },
+        {
+            "name": "Gour Express",
+            "origin": "Balurghat",
+            "destination": "Sealdah"
+        },
+        {
+            "name": "Gour Express",
+            "origin": "Balurghat",
+            "destination": "Sealdah"
+        },
+        {
+            "name": "Gour Express",
+            "origin": "Balurghat",
+            "destination": "Sealdah"
+        }
+    ]
+}

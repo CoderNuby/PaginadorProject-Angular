@@ -1,0 +1,26 @@
+
+
+
+
+<!-- ============================================================== -->
+<!-- Main wrapper - style you can find in pages.scss -->
+<!-- ============================================================== -->
+<div id="main-wrapper">
+  <div class="page-wrapper">
+      <!-- Container fluid  -->
+      <!-- ============================================================== -->
+      <div class="container-fluid">
+        <div *ngFor="let usuario of this.registros">
+          <h2>{{usuario.name}}</h2>
+        </div>
+        
+        <app-paginador 
+          (mandarPaginador)="cambiarPagina($event)">
+        </app-paginador>
+      </div>
+      <!-- END Container fluid  -->
+      <!-- ============================================================== -->
+  </div>
+  <!-- ============================================================== -->
+  <!-- END Page wrapper  -->
+</div>
