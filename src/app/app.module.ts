@@ -3,14 +3,15 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { PaginadorComponent } from './paginador/paginador.component';
-import { RegistrosComponent } from './registros/registros.component';
+import { PaginaRegistrosComponent } from './pagina-registros/pagina-registros.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     PaginadorComponent,
-    RegistrosComponent
+    PaginaRegistrosComponent
   ],
   imports: [
     BrowserModule

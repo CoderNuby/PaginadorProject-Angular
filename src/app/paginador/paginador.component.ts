@@ -1,11 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-paginador',
   templateUrl: './paginador.component.html',
   styleUrls: ['./paginador.component.css']
 })
-export class PaginadorComponent implements OnInit {
+export class PaginadorComponent implements OnInit, OnChanges {
 
 
   paginasParaMostrar: number[] = [];
@@ -19,20 +19,14 @@ export class PaginadorComponent implements OnInit {
   desdePaginas: number;
   
   pagina: number = 0;
-
-  registroPerPage: number = 12;
-
-  conteoSolo5: number = 0;
+  paginasTotales: number = 0;
 
   
   
   @Output() mandarPaginador = new EventEmitter();
-  totalRegistros: number = 100;//Automatiza el numero de usuarios
+  @Input() totalRegistros: number;//Automatiza el numero de usuarios
+  @Input() registroPerPage: number;
   
-
-  paginasTotales: number = 0;
-
-
 
   constructor() { }
 
@@ -40,22 +34,30 @@ export class PaginadorComponent implements OnInit {
     this.configurarPaginado();
   }
 
+  ngOnChanges(changes: SimpleChanges) {
+    // changes.prop contains the old and the new value...
+    this.configurarPaginado();
+    if(this.pagina == this.paginasTotales){
+      console.log("Cambiar de pagina a una pagina anterior");
+    }
+  }
+
   /*Sistema de paginado*/
   configurarPaginado(){
     this.paginasTotales = 0;
+    this.numero = 0;
+    this.paginasParaMostrar = [];
     //Determina las paginas que se demostraran a partir del total de usuarios
     for(var i = 0; this.numero < this.totalRegistros; i++){
       this.paginasParaMostrar[i] = i+1;
       this.paginasTotales++;
       this.numero += this.registroPerPage;
     }
-    console.log("Total paginas: ", this.paginasTotales);
   }
 
   CambiarPagina(num: number){
     this.pagina = this.pagina + num;
     this.desdePaginas = this.pagina * this.registroPerPage;
-    console.log("pagina",this.pagina);
     if(this.pagina <= 0){
       this.DesactivarBotonIzquierdo = true;
     }else{
@@ -66,7 +68,6 @@ export class PaginadorComponent implements OnInit {
     }else{
       this.DesactivarBotonDerecho = false;
     }
-    console.log(this.desdePaginas);
     this.emitirdesde();
   }
 
@@ -90,15 +91,9 @@ export class PaginadorComponent implements OnInit {
     this.mandarPaginador.emit(this.desdePaginas);
   }
 
-  /*
-  calculatePaginaShow(page: number): boolean{
-    return ((page-1) == this.pagina-2)
-    ||((page-1) == this.pagina-1)||
-    ((page-1) == this.pagina)||
-    ((page-1) == this.pagina+1)||
-    ((page-1) == this.pagina+2);
+  emitirdesdeDelete(){
+    this.mandarPaginador.emit(this.desdePaginas-1);
   }
-*/
 
   calculatePaginaShow(page){
     if(this.pagina < 3){

@@ -1,0 +1,42 @@
+<!-- ============================================================== -->
+<!-- Main wrapper - style you can find in pages.scss -->
+<!-- ============================================================== -->
+<div id="main-wrapper">
+  <div class="page-wrapper">
+      <!-- Container fluid  -->
+      <!-- ============================================================== -->
+      <div class="container-fluid">
+        <table class="table table-bordered table-dark">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Age</th>
+              <th scope="col">gender</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let usuario of this.usuarios">
+              <th scope="row">{{usuario.name}}</th>
+              <th scope="row">{{usuario.age}}</th>
+              <th scope="row">{{usuario.gender}}</th>
+              <th scope="row"><button (dblclick)="borrarUsuario(usuario._id)" type="button" class="btn btn-outline-danger">Delete</button></th>
+            </tr>
+          </tbody>
+        </table>
+        
+        <app-paginador 
+          [totalRegistros]="totalUsuarios"
+          [registroPerPage]="registrosPerPages"
+          (mandarPaginador)="cambiarPagina($event)"
+          (mandarPaginador)="cambiarPagina($event)"
+          >
+        </app-paginador>
+
+      </div>
+      <!-- END Container fluid  -->
+      <!-- ============================================================== -->
+  </div>
+  <!-- ============================================================== -->
+  <!-- END Page wrapper  -->
+</div>
