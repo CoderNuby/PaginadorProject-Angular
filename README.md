@@ -1,10 +1,24 @@
-# PaginadorProject
+# Paginador en Angular, Bootstrap y Fontawesome.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.3.
+Este proyecto es un demo de paginador para que pueda utilizarlo a su gusto en sus proyectos de Angular.
 
-## Development server
+Para poder visualizar este proyecto descargar el archivo y en la ruta  del proyecto abrir la linea de comandos y escribir npm install para descargar las dependencias necesarias.
+Despues abrir en el servidor de prueba.
+Los componentes que realmente importan en este proyecto son:
+* paginador.component:
+En este componente se encuentran los metodos y atributos necesarios para que el paginador funciones.
+* paginador-registros: 
+Este componente es donde se despliega la informacion de registros como un array.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Adecuar estos componentes a su gusto.
+
+## PaginadorProject
+
+Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-cli) version 7.1.3.
+
+## Servidor de desarrollador
+
+Correr en linea de comandos `ng serve` para un dev server. Navegar hacia `http://localhost:4200/` en su navegador de preferencia. La aplicacion se refrescara automaticamente si usted cambia cualquier cosa del codigo fuente y guarda el documento.
 
 ## Code scaffolding
 
@@ -28,4 +42,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 ## Creditos JSON GENERATOR
-[JSON GENERATOR](https://www.json-generator.com/#)
+creditos de creacion de objetos JSON: [JSON GENERATOR](https://www.json-generator.com/#)
