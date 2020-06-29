@@ -6,7 +6,19 @@
       <!-- Container fluid  -->
       <!-- ============================================================== -->
       <div class="container-fluid">
-        <table class="table table-bordered table-dark">
+        <div *ngIf="cargando" class="row animated fadeIn">
+          <div class="col-sm-12">
+            <div class="alert alert-warning text-center">
+              <strong>Cargando</strong>
+              <br>
+              <i class="fa fa-refresh fa-spin fa-2x"></i>
+              <br>
+              <span>Espere por favor</span>
+            </div>
+          </div>
+        </div>
+        
+        <table *ngIf="!cargando" class="table table-bordered table-dark">
           <thead>
             <tr>
               <th scope="col">Name</th>
@@ -20,7 +32,7 @@
               <th scope="row">{{usuario.name}}</th>
               <th scope="row">{{usuario.age}}</th>
               <th scope="row">{{usuario.gender}}</th>
-              <th scope="row"><button (dblclick)="borrarUsuario(usuario._id)" type="button" class="btn btn-outline-danger">Delete</button></th>
+              <th scope="row"><button (click)="borrarUsuario(usuario._id)" type="button" class="btn btn-outline-danger">Delete</button></th>
             </tr>
           </tbody>
         </table>

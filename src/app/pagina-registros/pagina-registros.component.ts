@@ -15,6 +15,8 @@ export class PaginaRegistrosComponent implements OnInit {
 
   registrosPerPages: number = 5;
 
+  cargando: boolean = true;
+
   totalUsuarios: number;
 
   constructor(
@@ -31,17 +33,18 @@ export class PaginaRegistrosComponent implements OnInit {
 
   cambiarPagina($event){
     this.desde = $event;
-    console.log(this.desde);
     this.obtenerUsuarios();
   }
 
   obtenerUsuarios(){
+    this.cargando = true;
     this.usuarios = this._registrosServices.getUsuarios(this.desde, this.registrosPerPages);
+    this.cargando = false;
   }
 
   borrarUsuario(id: string){
     this._registrosServices.deleteUsuario(id);
-    this.obtenerUsuarios();
     this.totalUsuarios = this._registrosServices.getUsuariosSize();
+    this.obtenerUsuarios();
   }
 }

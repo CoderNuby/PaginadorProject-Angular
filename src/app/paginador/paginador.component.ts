@@ -36,9 +36,15 @@ export class PaginadorComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     // changes.prop contains the old and the new value...
-    this.configurarPaginado();
-    if(this.pagina == this.paginasTotales){
-      console.log("Cambiar de pagina a una pagina anterior");
+    if(!changes.totalRegistros.firstChange){
+      this.configurarPaginado();
+      if(this.pagina == this.paginasTotales){
+        console.log("Cambiar de pagina a una pagina anterior");
+        this.CambiarPagina(-1);
+      }
+      if(this.pagina == (this.paginasTotales - 1)){
+        this.DesactivarBotonDerecho = true;
+      }
     }
   }
 
