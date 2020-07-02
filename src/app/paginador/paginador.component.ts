@@ -21,7 +21,7 @@ export class PaginadorComponent implements OnInit, OnChanges {
   pagina: number = 0;
   paginasTotales: number = 0;
 
-  
+
   
   @Output() mandarPaginador = new EventEmitter();
   @Input() totalRegistros: number;//Automatiza el numero de usuarios
@@ -32,7 +32,7 @@ export class PaginadorComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.configurarPaginado();
-  }
+    }
 
   ngOnChanges(changes: SimpleChanges) {
     // changes.prop contains the old and the new value...
@@ -95,10 +95,6 @@ export class PaginadorComponent implements OnInit, OnChanges {
 
   emitirdesde(){
     this.mandarPaginador.emit(this.desdePaginas);
-  }
-
-  emitirdesdeDelete(){
-    this.mandarPaginador.emit(this.desdePaginas-1);
   }
 
   calculatePaginaShow(page){
